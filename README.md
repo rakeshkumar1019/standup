@@ -1,1 +1,2 @@
-# standup
+# Standup
+The Standup is designed to streamline and optimize the daily standup process for teams. By simplifying the way standups are conducted, this tool aims to reduce the time spent while ensuring effective communication and collaboration.
