@@ -14,32 +14,21 @@ datasource db {
   directUrl         = env("DIRECT_URL")
 }
 
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-
-  @@index(userId)
-}
-
-model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  profile Profile?
-}
-
-
-model Orgnazation {
-  id      Int      @id @default(autoincrement())
-  name    String   @unique
-  project Project? @relation(fields: [projectId], references: [id])
+model Organization {
+  id          Int       @id @default(autoincrement())
+  userId      String?
+  name        String
+  createdAt   DateTime  @default(now())
+  projects    Project[]
 }
 
 model Project {
-  id      Int      @id @default(autoincrement())
-  name    String   @unique
-  org     Orgnazation @relation(fields: [orgId], references: [id])
-  orgId   Int
+  id             Int       @id @default(autoincrement())
+  name           String
+  createdAt      DateTime  @default(now())
+  userId         String
+  organizationId Int
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  @@index([organizationId])
 }
