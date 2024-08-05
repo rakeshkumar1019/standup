@@ -1,32 +1,47 @@
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export default function Home() {
   return (
     <main>
-        <section className="flex h-screen-minus-2.5rem">
-            <div className="sticky top-0 w-[13%] overflow-hidden border-r border-neutral-200 dark:border-neutral-700">
-                <div className="px-3 pt-5">
-                    <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight"> UI-2024-01</h2>
-                </div>
-                <div className="px-4 space-y-1">
-                    {/* <Button className="inline-flex items-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 w-full justify-start">
-            WEBUI
-          </Button>
-          <Button className="inline-flex items-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 w-full justify-start">
-            ELEMENTS
-          </Button>
-
-          <Button className="inline-flex items-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 px-4 py-2 w-full justify-start">
-            NAC
-          </Button> */}
-
-                </div>
-            </div>
-
-            <div className="w-[87%] overflow-y-auto ">
-                <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight"> Project</h2>
-            </div>
-        </section>
+      <section className="h-screen-minus-2.5rem p-5">
+        <h1 className="text-3xl font-extrabold">Dashbaord</h1>
+        <div className="flex gap-2 mt-5">
+          <Button>New Project </Button>
+          <Button variant={"outline"}>New organization </Button>
+        </div>
+        <Card className="mt-5">
+          <CardHeader>
+            <CardTitle className="text-2xl">Organizations</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>No organizations exist (yet). Be the first to create a organization.</p>
+          </CardContent>
+        </Card>
+        <Card className="mt-5">
+          <CardHeader>
+            <CardTitle className="text-2xl">Projects</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>No projects exist (yet). Be the first to create a project.</p>
+          </CardContent>
+        </Card>
+        <Card className="mt-5">
+          <CardHeader>
+            <CardTitle className="text-2xl">Assigned to Me</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>You currently have no issues assigned to you. Enjoy your day!</p>
+          </CardContent>
+        </Card>
+      </section>
     </main>
   );
 }
