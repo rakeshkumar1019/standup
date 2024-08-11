@@ -8,12 +8,11 @@ import User from "@/components/ui/user";
 
 
 
-export default async function DashboardLayout({
+export default async function BrowseIssueLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
       <html lang="en">
         <body className="">
@@ -34,6 +33,7 @@ export default async function DashboardLayout({
               <User />
             </div>
           </nav>
+          
           {children}
         </body>
       </html>

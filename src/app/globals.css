@@ -67,3 +67,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* globals.css or markdown.css */
+
+.markdown-body h1 {
+  @apply text-3xl;
+}
+
+.markdown-body h2 {
+  @apply text-2xl;
+}
+
+.markdown-body h3 {
+  @apply text-xl;
+}
+
+.markdown-body p {
+  @apply my-1;
+}
+
+.markdown-body strong {
+  @apply font-bold;
+}
+
+.markdown-body em {
+  @apply italic;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside mt-2 mb-4;
+}
+
+.markdown-body ol {
+  @apply list-decimal list-inside mt-2 mb-4;
+}
+
+.markdown-body code {
+  @apply  px-1 py-0.5 rounded bg-neutral-900 text-white;
+}
+
+.markdown-body pre {
+  @apply bg-neutral-900 text-white p-4 rounded mt-2 mb-4 overflow-x-auto;
+}

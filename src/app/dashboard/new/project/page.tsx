@@ -43,7 +43,7 @@ export default function Project() {
             </div>
 
             <div className="flex items-center p-3 justify-between mt-4 border-t shadow-sm">
-                <Link href="/"><Button variant="outline">Cancel</Button></Link>
+                <Link href="/dashboard"><Button variant="outline">Cancel</Button></Link>
                 <div className="flex gap-2 items-center">
                     <p className="text-xs text-gray-500">You can rename your project later</p>
                     <Button>Submit</Button>
