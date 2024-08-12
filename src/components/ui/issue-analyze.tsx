@@ -15,7 +15,7 @@ export default function IssueAnalyze() {
         setIsLoading(true);
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/analyze-issue', {
+            const response = await fetch('https://standup-call.vercel.app/api/analyze-issue', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ issueDescription }),
