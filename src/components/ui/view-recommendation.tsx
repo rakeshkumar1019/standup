@@ -31,11 +31,11 @@ export default function ViewRecommendation() {
                             </TabsTrigger>
                         </TabsList>
                         <TabsContent value="solutions" className="w-full">
-                            {analysis?.solutions.map((solution: { title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; steps: any[]; }, index: Key | null | undefined) => (
+                            {analysis?.solutions?.map((solution: { title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; steps: any[]; }, index: Key | null | undefined) => (
                                 <div key={index}>
-                                    <h3 className="text-md font-semibold">{solution.title}</h3>
+                                    <h3 className="text-md font-semibold">{solution?.title}</h3>
                                     <ul className="list-disc ml-5 mt-2 text-sm">
-                                        {solution.steps.map((step, i) => (
+                                        {solution?.steps?.map((step, i) => (
                                             <li key={i}>{step}</li>
                                         ))}
                                     </ul>
@@ -44,9 +44,9 @@ export default function ViewRecommendation() {
                         </TabsContent>
                         <TabsContent value="tasks">
                             <ul className="list-disc ml-5 text-sm">
-                                {analysis?.tasks.map((task: { title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; task: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }, index: Key | null | undefined) => (
+                                {analysis?.tasks?.map((task: { title: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; task: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined; }, index: Key | null | undefined) => (
                                     <li key={index}>
-                                        <strong>{task.title}:</strong> {task.task}
+                                        <strong>{task?.title}:</strong> {task?.task}
                                     </li>
                                 ))}
                             </ul>
