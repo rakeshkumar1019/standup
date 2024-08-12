@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Bold, Italic, Heading1, Heading2, Heading3, List, ListOrdered, ChevronDown, Save, EditIcon } from 'lucide-react';
@@ -13,6 +13,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import useGlobalStore from '@/store/store';
 
 type MarkdownStyle = 'p' | 'h1' | 'h2' | 'h3' | 'strong' | 'em' | 'ul' | 'ol';
 
@@ -48,7 +49,7 @@ API call to reschedule booking: POST \`https://api.cal.com/v1/bookings?apiKey=..
 - This will reschedule the booking to the unavailable slot, it should throw a \`no_available_users_found_error\``);
     const [isEditing, setIsEditing] = useState(false);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-
+    const setIssueData = useGlobalStore((state) => state.setIssueData)
     const applyStyle = (style: MarkdownStyle) => {
         if (!textareaRef.current) return;
 
@@ -95,6 +96,14 @@ API call to reschedule booking: POST \`https://api.cal.com/v1/bookings?apiKey=..
     const handleDropdownChange = (style: MarkdownStyle) => {
         applyStyle(style);
     };
+    const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+        setMarkdown(e.target.value)
+        setIssueData('description', e.target.value)
+    };
+
+    useEffect(() => {
+        setIssueData('description', markdown)
+    }, [])
 
     return (
         <div className="w-full mt-1">
@@ -152,7 +161,7 @@ API call to reschedule booking: POST \`https://api.cal.com/v1/bookings?apiKey=..
                     ref={textareaRef}
                     className="w-full p-2 border bg-transparent dark:border-neutral-900 border-neutral-300 shadow-sm"
                     value={markdown}
-                    onChange={(e) => setMarkdown(e.target.value)}
+                    onChange={handleChange}
                     rows={15}
                 />
             </>
