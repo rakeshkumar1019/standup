@@ -47,6 +47,8 @@ export async function analyzeIssue(issueDescription: string): Promise<IssueAnaly
 
   try {
     const parsedResponse = JSON.parse(text);
+    console.log("Error parsing AI response:", parsedResponse,"->",text);
+    
     return IssueAnalysisSchema.parse(parsedResponse);
   } catch (error) {
     console.error("Error parsing AI response:", error);
